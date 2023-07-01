@@ -2,15 +2,20 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 
 
 public class Controller {
 	
 	private GameLoop game;
+	private Score sc;
 	
 	@FXML
 	private Canvas canvas;
+	
+	@FXML
+	private Label score;
 	
 	@FXML
 	public void initialize() {
@@ -18,6 +23,12 @@ public class Controller {
         GraphicsContext gc = canvas.getGraphicsContext2D();
         game = new GameLoop(gc);
 		game.startGame();
+		
+		sc = new Score(score);
+	}
+	
+	public void changeScore(long score) {
+		this.score.setText("Score : " + score);
 	}
 	
 	@FXML

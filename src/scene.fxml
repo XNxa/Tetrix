@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane onKeyPressed="#handleKey" prefHeight="807.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<Pane onKeyPressed="#handleKey" prefHeight="997.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
       <VBox fx:id="vbox" layoutY="5.0" prefHeight="800.0" prefWidth="450.0">
          <children>
@@ -22,7 +22,7 @@
                   </Label>
                </center>
             </BorderPane>
-            <Canvas fx:id="canvas" height="709.0" width="450.0" VBox.vgrow="ALWAYS" />
+            <Canvas fx:id="canvas" height="900.0" width="450.0" VBox.vgrow="ALWAYS" />
             <BorderPane>
                <left>
                   <Label fx:id="score" text="Score : " BorderPane.alignment="CENTER">

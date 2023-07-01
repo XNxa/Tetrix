@@ -45,7 +45,7 @@ public class Grid {
 		
 		// Clear the canvas
         gc.clearRect(0, 0, gc.getCanvas().getWidth(), gc.getCanvas().getHeight());
-        gc.setFill(Color.BLACK);
+        gc.setFill(Color.web("#1a1947"));
         gc.fillRect(0, 0, gc.getCanvas().getWidth(), gc.getCanvas().getHeight());
 		
 		double width = gc.getCanvas().getWidth();
@@ -83,7 +83,9 @@ public class Grid {
 		}
 		
 		movingPiece = null;
-		deleteLines(detectFullLines());
+		int[] linesToDeletes = detectFullLines();
+		new Score().add(linesToDeletes.length);
+		deleteLines(linesToDeletes);
 	}
 	
 	
