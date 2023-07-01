@@ -25,6 +25,7 @@ public class Controller {
 		game.startGame();
 		
 		sc = new Score(score);
+		sc.add(0);
 	}
 	
 	public void changeScore(long score) {
