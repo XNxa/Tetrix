@@ -86,7 +86,7 @@ public class GameLoop extends AnimationTimer {
 		
 		Random random = new Random();
         int index = random.nextInt(shapes.length);
-        return new Piece(4, 0, shapes[index], grid);
+        return new Piece(4, 1, shapes[index], grid);
 	}
 	
 	

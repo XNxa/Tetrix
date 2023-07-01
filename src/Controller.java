@@ -13,20 +13,19 @@ public class Controller {
 	private Canvas canvas;
 	
 	@FXML
+	public void initialize() {
+		// Get the graphics context of the canvas
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+        game = new GameLoop(gc);
+		game.startGame();
+	}
+	
+	@FXML
 	private void restart(ActionEvent e) {
-		
-		
-		
 		if (game != null) {
 			game.stop();
 		}
-		
-		// Get the graphics context of the canvas
-        GraphicsContext gc = canvas.getGraphicsContext2D();
-        
-        
-		game = new GameLoop(gc);
-		game.startGame();
+		initialize();
 	}
 	
 	@FXML
