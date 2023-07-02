@@ -26,6 +26,8 @@ public class Controller {
 		
 		sc = new Score(score);
 		sc.add(0);
+		
+		score.isFocused();
 	}
 	
 	public void changeScore(long score) {
