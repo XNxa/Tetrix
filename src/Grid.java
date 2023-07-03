@@ -1,6 +1,4 @@
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.stream.IntStream;
 
 import javafx.scene.canvas.GraphicsContext;
@@ -42,14 +40,15 @@ public class Grid {
 	 * @param GraphicsContext associated with the canva
 	 */
 	public void draw(GraphicsContext gc) {
-		
-		// Clear the canvas
-        gc.clearRect(0, 0, gc.getCanvas().getWidth(), gc.getCanvas().getHeight());
-        gc.setFill(Color.web("#1a1947"));
-        gc.fillRect(0, 0, gc.getCanvas().getWidth(), gc.getCanvas().getHeight());
-		
+
 		double width = gc.getCanvas().getWidth();
 		double height = gc.getCanvas().getHeight();
+
+		// Clear the canvas
+        gc.clearRect(0, 0, width, height);
+        gc.setFill(Color.web("#1a1947"));
+        gc.fillRect(0, 0, width, height);
+		
 		
 		// Draw the moving piece
 		if (movingPiece != null) {
