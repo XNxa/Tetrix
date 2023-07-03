@@ -4,13 +4,13 @@ public class Score {
 
 	private static long points = 0;
 	private static int level = 1;
-	
+
 	private static Label s;
-	
+
 	public Score() {
-		
+
 	}
-	
+
 	public Score(Label score) {
 		s = score;
 	}
@@ -18,7 +18,7 @@ public class Score {
 	public void raz() {
 		points = 0;
 	}
-	
+
 	public void add(int amountOfLines) {
 		switch (amountOfLines) {
 			case 0:
@@ -40,7 +40,7 @@ public class Score {
 		}
 		s.setText("Score : " + points);
 	}
-	
+
 	public long getScore() {
 		return points;
 	}
@@ -48,5 +48,5 @@ public class Score {
 	public int getLevel() {
 		return level;
 	}
-	
+
 }

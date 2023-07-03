@@ -4,14 +4,14 @@ import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.GraphicsContext;
 
 public class GameLoop extends AnimationTimer {
-	
+
 	private long previousTime = 0;
 	private long interval = 1_000_000_000; //1s
-	
+
 	private Piece currentPiece;
 	private Grid grid;
 	private GraphicsContext gc;
-	
+
 	public GameLoop(GraphicsContext gc) {
 		grid = new Grid();
 		this.gc = gc;
@@ -30,32 +30,32 @@ public class GameLoop extends AnimationTimer {
             previousTime = currentTime;
         }
 	}
-	
+
 	/**
 	 * Start the tetrix Game.
 	 */
 	public void startGame() {
 		currentPiece = drawAPiece();
 		grid.add(currentPiece);
-		
+
 		start(); // Start the timer
 	}
-	
+
 	public void left() {
 		currentPiece.moveLeft();
 		grid.draw(gc);
 	}
-	
+
 	public void right() {
 		currentPiece.moveRight();
 		grid.draw(gc);
 	}
-	
+
 	public void rotateL() {
 		currentPiece.rotateLeft();
 		grid.draw(gc);
 	}
-	
+
 	public void rotateR() {
 		currentPiece.rotateRight();
 		grid.draw(gc);
@@ -83,11 +83,11 @@ public class GameLoop extends AnimationTimer {
 	 */
 	private Piece drawAPiece() {
 		Shape[] shapes = Shape.values();
-		
+
 		Random random = new Random();
         int index = random.nextInt(shapes.length);
         return new Piece(4, 1, shapes[index], grid);
 	}
-	
-	
+
+
 }

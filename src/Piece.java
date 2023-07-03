@@ -1,10 +1,11 @@
 import java.util.LinkedList;
+
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 public class Piece {
-	
-	    
+
+
 	int[][][] shapeCoord = {
 		// shapeI
 	    {{0, -1}, {0, 0}, {0, 1}, {0, 2}},
@@ -22,7 +23,7 @@ public class Piece {
 	    {{0, 0}, {0, -1}, {1, 0}, {-1, -1}}
 	};
 
-	
+
 	private static final Color[] colors = {
 	    Color.CYAN,      // shapeI - Cyan color
 	    Color.ORANGE,    // shapeL - Orange color
@@ -38,7 +39,7 @@ public class Piece {
 	private Shape s;
 	private final int shape_nb;
 	private Grid grid;
-	
+
 	/**
 	 * Initialize a new piece.
 	 * @param x x_coordinates of the top left block
@@ -52,31 +53,31 @@ public class Piece {
 		this.s = shape;
 		this.grid = grid;
 		shape_nb = s.ordinal();
-		
+
 	}
-	
+
 	/**
 	 * Draw the piece on a Canva.
 	 * @param GraphicsContext associated with the canva
 	 */
 	public void draw(GraphicsContext gc) {
-		
+
 		double width = gc.getCanvas().getWidth();
 		double height = gc.getCanvas().getHeight();
-		
+
 		int xlen = (int) (width / Grid.cols);
 		int ylen = (int) (height / Grid.rows);
-		
+
 		gc.setFill(this.getColor());
-		
+
 		for (int i = 0; i < shapeCoord[shape_nb].length; i++) {
 			int coordX = shapeCoord[shape_nb][i][0] + x;
 			int coordY = shapeCoord[shape_nb][i][1] + y;
 			gc.fillRect(xlen * coordX, ylen * coordY, xlen, ylen);
 		}
-		
+
 	}
-	
+
 	/**
 	 * Get the color of the piece.
 	 * @return Color
@@ -91,13 +92,13 @@ public class Piece {
 	 */
 	public int[][] getBlocksCoord() {
 		LinkedList<int[]> coords = new LinkedList<>();
-		
+
 		for (int i = 0; i < shapeCoord[shape_nb].length; i++) {
 			int coordX = shapeCoord[shape_nb][i][0] + x;
 			int coordY = shapeCoord[shape_nb][i][1] + y;
 			coords.add(new int[] { coordX, coordY });
 		}
-		
+
 		return coords.stream().toArray(int[][]::new);
 	}
 
@@ -112,7 +113,7 @@ public class Piece {
 		}
 		return false;
 	}
-	
+
 	/**
 	 * Move a piece left.
 	 * @return false if the piece can't go down
@@ -130,14 +131,14 @@ public class Piece {
 	 * @return false if the piece can't go right
 	 */
 	public boolean moveRight() {
-		
+
 		if (checkCells(1, 0)) {
 			this.x += 1;
 			return true;
 		}
 		return false;
 	}
-	
+
 	/**
 	 * Rotate a piece.
 	 * @param clockwise true for clockwise rotation, false for counterclockwise rotation
@@ -145,11 +146,11 @@ public class Piece {
 	 */
 	private boolean rotatePiece(boolean clockwise) {
 		int[][] rotatedCoords = new int[shapeCoord[shape_nb].length][2];
-	    
+
 	    for (int i = 0; i < shapeCoord[shape_nb].length; i++) {
 	        int coordX = shapeCoord[shape_nb][i][0];
 	        int coordY = shapeCoord[shape_nb][i][1];
-	        
+
 	        if (clockwise) {
 	            // Rotate clockwise: (x, y) -> (y, -x)
 	            rotatedCoords[i][0] = coordY;
@@ -160,20 +161,20 @@ public class Piece {
 	            rotatedCoords[i][1] = coordX;
 	        }
 	    }
-	    
+
 	    // Check if the rotated piece can fit into the grid
-	    for (int i = 0; i < rotatedCoords.length; i++) {
-	        int coordX = rotatedCoords[i][0] + x;
-	        int coordY = rotatedCoords[i][1] + y;
-	        
+	    for (int[] rotatedCoord : rotatedCoords) {
+	        int coordX = rotatedCoord[0] + x;
+	        int coordY = rotatedCoord[1] + y;
+
 	        if (grid.isCellOccupied(coordX, coordY)) {
 	            return false; // Rotation is not possible
 	        }
 	    }
-	    
+
 	    // Update the shape coordinates with the rotated coordinates
 	    shapeCoord[shape_nb] = rotatedCoords;
-	    
+
 	    return true; // Rotation successful
 	}
 
@@ -192,7 +193,7 @@ public class Piece {
 	public boolean rotateRight() {
 	    return rotatePiece(false);
 	}
-	
+
 	private boolean checkCells(int dx, int dy) {
 		for (int i = 0; i < shapeCoord[shape_nb].length; i++) {
 			int coordX = shapeCoord[shape_nb][i][0] + x + dx;
@@ -203,5 +204,5 @@ public class Piece {
 		}
 		return true;
 	}
-	
+
 }
