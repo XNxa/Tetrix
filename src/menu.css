@@ -1,0 +1,30 @@
+
+.title1 {
+    -fx-font-size: 35px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+.button1 {
+    -fx-background-color: #8bf09f;
+    -fx-background-radius: 50%;
+	-fx-padding: 10px;
+    -fx-font-size: 14px;
+}
+
+.button1:hover {
+  	-fx-background-color: linear-gradient(#18f544	,#00ff33);
+}
+
+#setting {
+    -fx-background-image: url('setting.png');
+    -fx-background-color: transparent;
+    -fx-background-size: contain;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-radius: 50%;
+}
+
+#setting:hover {
+	-fx-background-color: #cfd4d0;
+}
