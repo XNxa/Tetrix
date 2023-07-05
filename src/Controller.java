@@ -5,35 +5,34 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 
-
 public class Controller {
-	
+
 	private GameLoop game;
 	private Score sc;
-	
+
 	@FXML
 	private Canvas canvas;
-	
+
 	@FXML
 	private Label score;
-	
+
 	@FXML
 	public void initialize() {
 		// Get the graphics context of the canvas
-        GraphicsContext gc = canvas.getGraphicsContext2D();
-        game = new GameLoop(gc);
+		GraphicsContext gc = canvas.getGraphicsContext2D();
+		game = new GameLoop(gc);
 		game.startGame();
-		
+
 		sc = new Score(score);
 		sc.add(0);
-		
+
 		score.isFocused();
 	}
-	
+
 	public void changeScore(long score) {
 		this.score.setText("Score : " + score);
 	}
-	
+
 	@FXML
 	private void restart(ActionEvent e) {
 		if (game != null) {
@@ -41,35 +40,39 @@ public class Controller {
 		}
 		initialize();
 	}
-	
+
 	@FXML
 	private void handleKey(KeyEvent event) {
-		
+
 		switch (event.getCode()) {
-		
+
 		case Q:
 			game.left();
 			break;
-			
+
 		case D:
 			game.right();
 			break;
-			
+
 		case E:
 			game.rotateL();
 			break;
-			
+
 		case A:
 			game.rotateR();
 			break;
-			
+
 		case S:
 			game.down();
 			break;
-			
+
+		case SPACE:
+			game.pause();
+			break;
+
 		default:
-			break;	
+			break;
 		}
 	}
-	
+
 }

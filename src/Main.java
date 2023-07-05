@@ -14,10 +14,10 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("scene.fxml"));
         primaryStage.setTitle("JavaFX App");
-        primaryStage.setScene(new Scene(root, 330.0, 630.0));
+        primaryStage.setScene(new Scene(root, 350.0, 650.0));
         primaryStage.setMinWidth(330.0);
-        primaryStage.setMinHeight(630.0);
-        //primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream("rubik.png")));
+        primaryStage.setMinHeight(650.0);
+        primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream("rubik.png")));
         primaryStage.show();
 	}
 	
