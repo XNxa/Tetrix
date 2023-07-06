@@ -16,17 +16,17 @@ public class MenuController {
     private void startGame(ActionEvent event) {
     	Stage stage;
         Parent root;
-       
+
         stage = (Stage) startButton.getScene().getWindow();
         try {
 			root = FXMLLoader.load(getClass().getResource("tetrix.fxml"));
 			Scene scene = new Scene(root);
 	        stage.setScene(scene);
 	        stage.show();
-    
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-        
-     }   
+
+     }
 }

@@ -18,7 +18,7 @@ public class Main extends Application {
         primaryStage.setMinWidth(600.0);
         primaryStage.setMinHeight(400.0);
         primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream("rubik.png")));
-                 
+
         primaryStage.show();
 	}
 

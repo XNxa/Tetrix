@@ -1,17 +1,17 @@
 import java.util.Random;
 
 /**
- * 
+ *
  * A shape generator that can be adjusted to serve up an identical set of shapes
  * at the start of each game. After that, shapes will be drawn randomly.
- * 
+ *
  */
 public final class ShapesDebug {
 
 	/**
 	 * put here the shapes in the order you want to play them at the beginning of
 	 * each game. At the end of the array, shapes will be drawn randomly.
-	 * 
+	 *
 	 * Set this array to an empty array if you only want a random draw. <br />
 	 * <br />
 	 * <i>Example :</i> <code>{Shape.shapeO, Shape.shapeO, Shape.shapeO}</code>

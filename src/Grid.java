@@ -6,7 +6,6 @@ import javafx.scene.text.Font;
 
 public class Grid {
 
-
 	public final static int cols = 10;
 	public final static int rows = 20;
 
@@ -20,7 +19,7 @@ public class Grid {
 
 	/**
 	 * Is the cell (x, y) occupied by a block ?
-	 * 
+	 *
 	 * @param x horizontal coordinates
 	 * @param y vertical coordinates
 	 * @return true if there is a block.
@@ -31,14 +30,12 @@ public class Grid {
 		}
 
 		return (fixedBlocks[x][y] != null);
-
-		return (fixedBlocks[x][y]!=null);
 	}
 
 
 	/**
 	 * Add a new piece to the game.
-	 * 
+	 *
 	 * @param piece
 	 */
 	public void add(Piece piece) {
@@ -48,7 +45,7 @@ public class Grid {
 
 	/**
 	 * Draw the current state of the game on a canva.
-	 * 
+	 *
 	 * @param GraphicsContext associated with the canva
 	 */
 	public void draw(GraphicsContext gc) {
@@ -104,11 +101,10 @@ public class Grid {
 	}
 
 	/**
-	 * 
+	 *
 	 */
 	public void resetGame() {
 		endGame = false;
-
 	}
 
 	public void lockPiece(Piece piece) {
@@ -162,18 +158,8 @@ public class Grid {
 					fixedBlocks[col][i] = null;
 				}
 			}
-		}
-	            // Shift all rows above the current line downwards
-	            for (int j = currentLine - 1; j >= 0; j--) {
-	                for (int k = 0; k < cols; k++) {
-	                    fixedBlocks[k][j + 1] = fixedBlocks[k][j];
-	                }
-	            }
 
-	            // Clear the top row (since it has shifted down)
-	            Arrays.fill(fixedBlocks[0], null);
-	        }
-	    }
+	     }
 	}
 
 	private int[] detectFullLines() {
@@ -183,7 +169,7 @@ public class Grid {
 				.filter(i -> IntStream.range(0, cols).allMatch(j -> fixedBlocks[j][i] != null)).toArray();
 
 		/*
-		 * int fullLinesLength = fullLines.length; 
+		 * int fullLinesLength = fullLines.length;
 		 * if (fullLinesLength > 0)
 		 * 	System.out.println(fullLinesLength + " lignes à détruire");
 		 */

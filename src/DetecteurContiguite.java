@@ -3,10 +3,10 @@ import java.util.Arrays;
 
 /**
  * Classe qui fait l'analyse d'un tableau de numéros de lignes du Petrix
- * 
+ *
  * Détermine les index de départ et le nombre de lignes à descendre
- * 
- * 
+ *
+ *
  */
 public final class DetecteurContiguite {
 
@@ -32,7 +32,7 @@ public final class DetecteurContiguite {
 
 		/**
 		 * Construit un nouveau bloc de données
-		 * 
+		 *
 		 * @param index                 l'index de départ dans la grille de la 1ere
 		 *                              ligne du bloc à bouger
 		 * @param nb_lignes_vers_le_bas le nombre de lignes dont il faut décaler vers le
@@ -49,6 +49,7 @@ public final class DetecteurContiguite {
 		 * fournit une représentation sous forme de chaine de caractères d'une instance
 		 * de cette classe
 		 */
+		@Override
 		public String toString() {
 			StringBuilder sb = new StringBuilder();
 			sb.append("[");
@@ -75,9 +76,9 @@ public final class DetecteurContiguite {
 	/**
 	 * Construit un nouveau détecteur de contiguité sur la base du tableau des
 	 * lignes à éliminer.
-	 * 
+	 *
 	 * Il suffit alors d'utiliser getAnalyse
-	 * 
+	 *
 	 * @param tableau_de_lignes tableau indiquant les numéros des lignes à éliminer
 	 */
 	public DetecteurContiguite(int[] tableau_de_lignes) {
@@ -90,9 +91,9 @@ public final class DetecteurContiguite {
 	 * Fournit le nombre total de mouvements de lignes à faire pour éliminer les
 	 * lignes indiquées dans le tableau fourni lors de l'instantiation de cette
 	 * classe.
-	 * 
+	 *
 	 * Les mouvements à faire sont fournis par la fonction getMouvements()
-	 * 
+	 *
 	 * @return le nb de mouvements
 	 */
 	public int getNbMouvements() {
@@ -101,7 +102,7 @@ public final class DetecteurContiguite {
 
 	/**
 	 * Fournit le mouvement à effectuer sur la grille de Petrix
-	 * 
+	 *
 	 * @param num_mouvement le numéro du mouvement recherché
 	 * @return le mouvement à faire
 	 */
@@ -115,7 +116,7 @@ public final class DetecteurContiguite {
 	/**
 	 * indique le nombre de lignes qui seront supprimées suite à l'analyse de
 	 * contiguité menée par cette classe
-	 * 
+	 *
 	 * @return le nombre de lignes qui seront supprimées
 	 */
 	public int getNombreLignesASupprimer() {

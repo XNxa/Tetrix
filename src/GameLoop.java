@@ -104,13 +104,13 @@ public class GameLoop extends AnimationTimer {
 
 	/**
 	 * Draw a random piece between all shapes available.
-	 * 
+	 *
 	 * @return Piece
 	 */
 	private Piece drawAPiece() {
 		/*
 		 * Shape[] shapes = Shape.values();
-		 * 
+		 *
 		 * Random random = new Random(); int index = random.nextInt(shapes.length);
 		 * return new Piece(4, 1, shapes[index], grid);
 		 */
