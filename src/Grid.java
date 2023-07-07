@@ -9,13 +9,13 @@ public class Grid {
 	public final static int cols = 10;
 	public final static int rows = 20;
 
-
 	private Piece movingPiece;
-
 
 	private Color[][] fixedBlocks = new Color[cols][rows];
 
 	private boolean endGame = false;
+	private boolean pauseGame = false;
+	
 
 	/**
 	 * Is the cell (x, y) occupied by a block ?
@@ -88,10 +88,15 @@ public class Grid {
 
 		if (endGame) {
 			drawEndGame(gc);
-
+		}
+		if (pauseGame) {
+			drawPauseGame(gc);
 		}
 
 	}
+
+	
+
 
 	/**
 	 * when game is ended, this grid show an "end of game" message.
@@ -190,6 +195,25 @@ public class Grid {
 		gc.fillText("GAME ENDED", 20.0, 200.0);
 		gc.restore();
 	}
+	
+	private void drawPauseGame(GraphicsContext gc) {
+		
+		gc.save();
+		gc.setFont(new Font("Arial", 35.0));
+		gc.setFill(Color.rgb(194, 255, 179, 0.7));
+		double hauteur = 39.0;
+		double position_verticale = 168.0;
+		gc.fillRect(10.0, position_verticale, 258.0, hauteur);
 
+		gc.setFill(Color.DARKGREEN);
+
+		gc.fillText("GAME PAUSED", 12.0, 200.0);
+		gc.restore();
+			
+	}
+	
+	public void pause() {
+		this.pauseGame = !this.pauseGame;
+	}
 
 }

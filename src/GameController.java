@@ -65,6 +65,10 @@ public class GameController {
 		case S:
 			game.down();
 			break;
+			
+		case SPACE:
+			game.pause();
+			break;
 
 		default:
 			break;

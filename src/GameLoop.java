@@ -33,6 +33,7 @@ public class GameLoop extends AnimationTimer {
 			}
 			previousTime = currentTime;
 		}
+		grid.draw(gc);
 	}
 
 
@@ -82,6 +83,7 @@ public class GameLoop extends AnimationTimer {
 
 	public void pause() {
 		isPaused = !isPaused;
+		grid.pause();
 	}
 
 	private void movePieceDown() {
@@ -99,7 +101,6 @@ public class GameLoop extends AnimationTimer {
 			}
 		}
 
-		grid.draw(gc);
 	}
 
 	/**

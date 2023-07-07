@@ -6,9 +6,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class MenuController {
+	
 	@FXML
     private Button startButton;
 
@@ -29,4 +31,25 @@ public class MenuController {
 		}
 
      }
+    
+    @FXML
+    private void scoreButton(ActionEvent event) {
+    	
+        try {
+			
+			Pane pane = new FXMLLoader(getClass().getResource("scoreboard.fxml")).load();
+			
+			Stage scoreStage = new Stage();
+			Scene scoreScene = new Scene(pane);
+			
+			scoreStage.setScene(scoreScene);
+			scoreStage.setTitle("ScoreBoard");
+			scoreStage.showAndWait();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}	
+    	
+    }
+    
 }
