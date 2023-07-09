@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="620.0" minWidth="320.0" onKeyPressed="#handleKey" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.xnxa.tetris.GameController">
+         <children>
+            <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+                  <Label text="Tetrix" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="40.0" />
+                     </font>
+                  </Label>
+         </top>
+         <center>
+                  <Canvas fx:id="canvas" focusTraversable="true" height="500.0" width="280.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </BorderPane.margin>
+            </Canvas>
+         </center>
+         <bottom>
+                  <BorderPane BorderPane.alignment="CENTER">
+                     <left>
+                        <Label fx:id="score" text="Score : " BorderPane.alignment="CENTER_LEFT">
+                           <font>
+                              <Font size="26.0" />
+                           </font>
+                           <BorderPane.margin>
+                              <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                           </BorderPane.margin>
+                        </Label>
+                     </left>
+                     <right>
+                        <Button fx:id="restartButton" mnemonicParsing="false" onAction="#restart" text="Restart" BorderPane.alignment="CENTER" />
+                     </right>
+               <center>
+                  <Button mnemonicParsing="false" onAction="#onBack" text="Back" BorderPane.alignment="CENTER" />
+               </center>
+                  </BorderPane>
+         </bottom>
+            </BorderPane>
+         </children>
+         <padding>
+            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+         </padding>
+      </AnchorPane>
