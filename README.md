@@ -7,11 +7,11 @@ Little tetris-like game made with JavaFX
 * launch in a terminal with command
 
 ```bash
-java -jar --module-path "path to JavaFX libs" --add-modules=javafx.controls,javafx.fxml .\petris.jar
+java -jar --module-path "path to JavaFX libs" --add-modules=javafx.controls,javafx.fxml,javafx.graphics,javafx.media .\tetrix.jar
 ````
 
-chez moi :
+For example :
 
 ```bash
-java -jar --module-path "c:\d\java\FX11\lib" --add-modules=javafx.controls,javafx.fxml .\petris.jar
+java -jar --module-path "c:\d\java\FX11\lib" --add-modules=javafx.controls,javafx.fxml,javafx.graphics,javafx.media .\tetrix.jar
 ```
