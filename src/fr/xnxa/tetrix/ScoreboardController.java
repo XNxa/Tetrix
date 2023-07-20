@@ -1,4 +1,4 @@
-package fr.xnxa.tetris;
+package fr.xnxa.tetrix;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

@@ -1,4 +1,4 @@
-package fr.xnxa.tetris;
+package fr.xnxa.tetrix;
 import java.io.IOException;
 import java.net.URL;
 
@@ -18,8 +18,8 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		 mainUI = getClass().getResource("fxml/menu.fxml");
-		 Main.primaryStage = primaryStage;
+		mainUI = getClass().getResource("fxml/menu.fxml");
+		Main.primaryStage = primaryStage;
 		mainStage();
 	}
 	

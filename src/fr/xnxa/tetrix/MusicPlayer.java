@@ -1,4 +1,4 @@
-package fr.xnxa.tetris;
+package fr.xnxa.tetrix;
 
 import java.io.File;
 import java.net.URL;

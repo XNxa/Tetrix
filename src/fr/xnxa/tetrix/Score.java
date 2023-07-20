@@ -1,4 +1,4 @@
-package fr.xnxa.tetris;
+package fr.xnxa.tetrix;
 import javafx.scene.control.Label;
 
 public class Score {

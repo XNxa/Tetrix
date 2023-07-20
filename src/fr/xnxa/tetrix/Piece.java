@@ -1,4 +1,4 @@
-package fr.xnxa.tetris;
+package fr.xnxa.tetrix;
 import java.util.LinkedList;
 
 import javafx.scene.canvas.GraphicsContext;

@@ -1,4 +1,4 @@
-package fr.xnxa.tetris;
+package fr.xnxa.tetrix;
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.GraphicsContext;
 
