@@ -16,7 +16,7 @@ public final class MusicPlayer {
 
 	private int current_index = 0;
 
-	String music_urls[] = { "1", "2" };
+	String music_urls[] = { "tetris" };
 
 	private Runnable onEndofMedia = new Runnable() {
 
