@@ -1,53 +1,31 @@
 package fr.xnxa.tetrix;
-import javafx.scene.control.Label;
 
-public class Score {
-
-	private static long points = 0;
-	private static int level = 1;
-
-	private static Label s;
-
-	public Score() {
-
+public class Score implements Comparable<Score> {
+	
+	private String playername;
+	private long points;
+	
+	public Score(String playername, long points) {
+		this.playername = playername.trim();
+		this.points = points;
 	}
 
-	public Score(Label score) {
-		s = score;
+	public String getPlayername() {
+		return playername;
 	}
 
-	public void raz() {
-		points = 0;
-	}
-
-	public void add(int amountOfLines) {
-		switch (amountOfLines) {
-			case 0:
-				break;
-			case 1:
-				points+=100*level;
-				break;
-			case 2:
-				points+=300*level;
-				break;
-			case 3:
-				points+=500*level;
-				break;
-			case 4:
-				points+=800*level;
-				break;
-			default:
-				throw new IllegalStateException("The number of lines deleted can't be : " + amountOfLines);
-		}
-		s.setText("Score : " + points);
-	}
-
-	public long getScore() {
+	public long getPoints() {
 		return points;
 	}
 
-	public int getLevel() {
-		return level;
+	@Override
+	public int compareTo(Score other) {
+		return ((Long) this.points).compareTo((Long) other.points);
+	}
+	
+	@Override
+	public String toString() {
+		return playername + ":" + points ;
 	}
 
 }

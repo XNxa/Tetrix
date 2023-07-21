@@ -6,10 +6,12 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ScoreManager {
+public class ScoreSaver {
 	
 	private static final String SAVE_FILE = "scores.txt";
 	
@@ -23,7 +25,7 @@ public class ScoreManager {
 	 * The constructor checks if the save file already exist or not
 	 * If it doesn't => it creates it
 	 */
-	public ScoreManager() {
+	public ScoreSaver() {
 		
 		String path = HOME_FOLDER;
 		
@@ -55,7 +57,7 @@ public class ScoreManager {
 	
 	public List<String> getScores() {
 		
-		List<String> scores = new LinkedList<>();
+		List<Score> scores = new LinkedList<>();
 		
 		try (FileReader file = new FileReader(save)) {
 			
@@ -63,9 +65,14 @@ public class ScoreManager {
 			
 			String line;
 			while ((line = buffer.readLine()) != null) {
-				scores.add(line);
+				for (String string : line.split(",")) {
+					
+					String name = string.split(":")[0];
+					long points = Long.parseLong(string.split(":")[1]);
+					
+					scores.add(new Score(name, points));
+				}
 			}
-			
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -75,15 +82,22 @@ public class ScoreManager {
 			e.printStackTrace();
 		}
 		
-		return scores;
+		Collections.sort(scores, Collections.reverseOrder());
+		
+		LinkedList<String> result = new LinkedList<>();
+		
+		for (Score s : scores) {
+			result.add(s.getPlayername() + " - " + ((Long) s.getPoints()).toString());
+		}
+		
+		return result;
 	}
 	
-	public void appendScore(String playername, long points) {
+	public void appendScore(Score s) {
 		
 		try (FileWriter file = new FileWriter(save, true)) {
 			
-			playername.trim();
-			file.write(playername + " - " + points + "\n");
+			file.write(s.toString() + ",");
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

@@ -125,7 +125,7 @@ public class Grid {
 
 		movingPiece = null;
 		int[] linesToDeletes = detectFullLines();
-		new Score().add(linesToDeletes.length);
+		new CurrentScore().add(linesToDeletes.length);
 		deleteLines(linesToDeletes);
 	}
 

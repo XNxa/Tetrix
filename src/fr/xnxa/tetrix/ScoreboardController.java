@@ -20,7 +20,7 @@ public class ScoreboardController {
 	@FXML
 	public void initialize() {
 		
-		List<String> scores = (new ScoreManager()).getScores();
+		List<String> scores = (new ScoreSaver()).getScores();
 		
 		ObservableList<String> content = FXCollections.observableArrayList(scores);
 		list.setItems(content);

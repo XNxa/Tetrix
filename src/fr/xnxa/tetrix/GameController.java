@@ -12,7 +12,7 @@ import javafx.scene.input.KeyEvent;
 public class GameController {
 
 	private GameLoop game;
-	private Score sc;
+	private CurrentScore sc;
 
 	@FXML
 	private Canvas canvas;
@@ -27,8 +27,8 @@ public class GameController {
 		game = new GameLoop(gc);
 		game.startGame();
 
-		sc = new Score(score);
-		sc.add(0);
+		sc = new CurrentScore(score);
+		sc.raz();
 
 		MusicPlayer.start();
 
