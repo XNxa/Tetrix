@@ -1,4 +1,6 @@
 package fr.xnxa.tetrix;
+import java.util.List;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,7 +20,9 @@ public class ScoreboardController {
 	@FXML
 	public void initialize() {
 		
-		ObservableList<String> content = FXCollections.observableArrayList("XAV - 10000", "BEB - 200000");
+		List<String> scores = (new ScoreSaver()).getScores();
+		
+		ObservableList<String> content = FXCollections.observableArrayList(scores);
 		list.setItems(content);
 	}	
 	

@@ -1,6 +1,9 @@
 package fr.xnxa.tetrix;
 import javafx.animation.AnimationTimer;
+import javafx.application.Platform;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.TextInputDialog;
+import javafx.stage.Window;
 
 public class GameLoop extends AnimationTimer {
 
@@ -12,6 +15,7 @@ public class GameLoop extends AnimationTimer {
 	private Piece currentPiece;
 	private Grid grid;
 	private GraphicsContext gc;
+	private ScoreSaver sc = new ScoreSaver();
 
 
 	public GameLoop(GraphicsContext gc) {
@@ -23,6 +27,9 @@ public class GameLoop extends AnimationTimer {
 
 	@Override
 	public void handle(long currentTime) {
+		
+		
+		
 		if (previousTime == 0) {
 			previousTime = currentTime;
 			return;
@@ -98,11 +105,24 @@ public class GameLoop extends AnimationTimer {
 				// signal for end of the game !
 				endGame = true;
 				grid.endGame();
+				Platform.runLater(()->{
+					sc.appendScore(new Score(askPlayerName(), new CurrentScore().getScore()));
+				});
 			} else {
 				grid.add(currentPiece);
 			}
 		}
 
+	}
+
+	private String askPlayerName() {
+		
+		TextInputDialog window = new TextInputDialog();
+		window.setTitle("What's yout name ?");
+		window.setHeaderText("Enter your name :");
+		window.showAndWait();
+			
+		return window.getResult();
 	}
 
 	/**
