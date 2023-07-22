@@ -24,7 +24,7 @@
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" styleClass="title1" stylesheets="@menu.css" text="Tetrix" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
             <Button fx:id="startButton" mnemonicParsing="false" onAction="#startGame" prefHeight="101.0" prefWidth="101.0" styleClass="button1" stylesheets="@menu.css" text="Start Game" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="2" GridPane.valignment="CENTER" />
-            <Button id="setting" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" stylesheets="@menu.css" text="Settings" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="TOP" />
+            <Button id="setting" contentDisplay="GRAPHIC_ONLY" mnemonicParsing="false" onAction="#settingsButton" prefHeight="50.0" prefWidth="50.0" stylesheets="@menu.css" text="Settings" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="TOP" />
             <Button mnemonicParsing="false" onAction="#scoreButton" text="See ScoreBoard" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
