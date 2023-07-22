@@ -86,6 +86,8 @@ public class GameController {
 	void onBack(ActionEvent event) {
 		// go back : load initial menu stage
 		MusicPlayer.stop();
+		game.stop(); // stop the animation timer !
+		
 		try {
 			Main.mainStage();
 		} catch (IOException e) {

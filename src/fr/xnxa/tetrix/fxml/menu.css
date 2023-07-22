@@ -17,7 +17,7 @@
 }
 
 #setting {
-    -fx-background-image: url('/assets/setting.png');
+    -fx-background-image: url('../assets/setting.png');
     -fx-background-color: transparent;
     -fx-background-size: contain;
     -fx-background-position: center;
