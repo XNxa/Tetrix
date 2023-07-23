@@ -8,20 +8,16 @@ public class CurrentScore {
 
 	private static Label s;
 
-	public CurrentScore() {
-
-	}
-
-	public CurrentScore(Label score) {
+	public static void setScoreLabel(Label score) {
 		s = score;
 	}
 
-	public void raz() {
+	public static void raz() {
 		points = 0;
 		updateLabel();
 	}
 
-	public void add(int amountOfLines) {
+	public static void add(int amountOfLines) {
 		switch (amountOfLines) {
 			case 0:
 				break;
@@ -43,15 +39,15 @@ public class CurrentScore {
 		updateLabel();
 	}
 
-	public long getScore() {
+	public static long getScore() {
 		return points;
 	}
 
-	public int getLevel() {
+	public static int getLevel() {
 		return level;
 	}
 	
-	private void updateLabel() {
+	private static void updateLabel() {
 		s.setText("Score : " + points);
 	}
 }
