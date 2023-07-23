@@ -1,8 +1,6 @@
 package fr.xnxa.tetrix;
 
-import javafx.application.Platform;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.TextInputDialog;
 
 public class Game {
 
@@ -13,39 +11,38 @@ public class Game {
 	private Piece currentPiece;
 
 	private boolean isPaused = false;
-	private ScoreSaver sc = new ScoreSaver();
-	
+
 	public Game(GraphicsContext gc) {
 		this.gc = gc;
 
 		MusicPlayer.start();
-		
+
 		clk = new GameTimer(this);
 	}
-	
+
 	public void start() {
 		grid = new Grid();
-		
+
 		CurrentScore.raz();
-		
+
 		clk.setTickSpeed(1);
 		clk.start();
-		
+
 		currentPiece = choosePiece();
 		grid.add(currentPiece);
 		grid.draw(gc);
 	}
-	
+
 	public void stop() {
 		clk.stop();
 		MusicPlayer.stop();
 	}
-	
+
 	public void tick() {
 		movePieceDown();
 		grid.draw(gc);
 	}
-	
+
 	public void left() {
 		if (currentPiece != null)
 			currentPiece.moveLeft();
@@ -80,13 +77,13 @@ public class Game {
 
 	public void pause() {
 		isPaused = !isPaused;
-		
+
 		if (isPaused) {
 			clk.start();
 		} else {
 			clk.stop();
 		}
-		
+
 		grid.pause();
 		grid.draw(gc);
 		MusicPlayer.pause();
@@ -98,12 +95,15 @@ public class Game {
 			// Lock the piece in place and generate a new active piece
 			grid.lockPiece(currentPiece);
 			currentPiece = choosePiece();
+			
+			clk.setTickSpeed(CurrentScore.getLevel());
+			
 			if (currentPiece == null) {
 				// signal for end of the game !
 				grid.endGame();
-				
-				new AskNameDialog(CurrentScore.getScore()); 
-				
+
+				new AskNameDialog(CurrentScore.getScore());
+
 			} else {
 				grid.add(currentPiece);
 			}
