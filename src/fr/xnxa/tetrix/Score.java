@@ -1,5 +1,8 @@
 package fr.xnxa.tetrix;
 
+/**
+ * Class used to represent a Score
+ */
 public class Score implements Comparable<Score> {
 	
 	private String playername;
@@ -17,7 +20,10 @@ public class Score implements Comparable<Score> {
 	public long getPoints() {
 		return points;
 	}
-
+	
+	/**
+	 * A score is bigger if the amount of points is.
+	 */
 	@Override
 	public int compareTo(Score other) {
 		return ((Long) this.points).compareTo((Long) other.points);

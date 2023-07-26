@@ -4,12 +4,12 @@ import javafx.animation.AnimationTimer;
 
 public class GameTimer extends AnimationTimer {
 	
-	private Game game;
+	private Tickable game;
 	
 	private long previousTime = 0;
 	private long interval; 
 	
-	public GameTimer(Game game) {
+	public GameTimer(Tickable game) {
 		interval = 1_000_000_000;
 		this.game = game;
 	}

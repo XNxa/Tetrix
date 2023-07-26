@@ -4,10 +4,7 @@ import java.util.Arrays;
 
 /**
  * Classe qui fait l'analyse d'un tableau de numéros de lignes du Petrix
- *
  * Détermine les index de départ et le nombre de lignes à descendre
- *
- *
  */
 public final class DetecteurContiguite {
 

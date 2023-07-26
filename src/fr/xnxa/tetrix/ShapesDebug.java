@@ -2,10 +2,8 @@ package fr.xnxa.tetrix;
 import java.util.Random;
 
 /**
- *
  * A shape generator that can be adjusted to serve up an identical set of shapes
  * at the start of each game. After that, shapes will be drawn randomly.
- *
  */
 public final class ShapesDebug {
 

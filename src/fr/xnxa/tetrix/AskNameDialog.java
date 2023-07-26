@@ -3,6 +3,9 @@ package fr.xnxa.tetrix;
 import javafx.application.Platform;
 import javafx.scene.control.TextInputDialog;
 
+/**
+ * Class used to open a window to ask the player's name
+ */
 public class AskNameDialog extends TextInputDialog {
 	
 	public AskNameDialog(Long points) {

@@ -55,6 +55,10 @@ public class ScoreSaver {
 		
 	}
 	
+	/**
+	 * Get the sorted scores in form the save file.
+	 * @return List of string following the pattern "playername - points"
+	 */
 	public List<String> getScores() {
 		
 		List<Score> scores = new LinkedList<>();
@@ -93,6 +97,10 @@ public class ScoreSaver {
 		return result;
 	}
 	
+	/**
+	 * Add a new entry to the save file.
+	 * @param Score
+	 */
 	public void appendScore(Score s) {
 		
 		try (FileWriter file = new FileWriter(save, true)) {

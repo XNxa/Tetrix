@@ -4,9 +4,10 @@ import java.util.LinkedList;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
+
 public class Piece {
 
-
+	/** Hardcoded description of the 7 possible shapes */
 	int[][][] shapeCoord = {
 		// shapeI
 	    {{0, -1}, {0, 0}, {0, 1}, {0, 2}},
@@ -23,7 +24,6 @@ public class Piece {
 	    // shapeZ
 	    {{0, 0}, {0, -1}, {1, 0}, {-1, -1}}
 	};
-
 
 	private static final Color[] colors = {
 	    Color.CYAN,      // shapeI - Cyan color

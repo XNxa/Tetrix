@@ -22,27 +22,27 @@ public final class MusicPlayer {
 
 		@Override
 		public void run() {
-			System.out.println("end of media");
-			if (current_index < music_urls.length - 1) {
-				current_index++;
-				String chemin = MusicPlayer.path + music_urls[current_index] + extension;
-				System.out.println("Player loading next music : " + chemin);
-				URL res = getClass().getResource(chemin);
-				if (res != null) {
-					String path = res.getPath();
-					Media media = new Media(new File(path).toURI().toString());
-					mp = new MediaPlayer(media);
-					mp.setVolume(1.0);
-					mp.setOnEndOfMedia(onEndofMedia);
-					mp.setAutoPlay(true);
-					mp.play();
-					paused = false;
-				} else {
-					System.out.println("erreur ressource " + chemin + " est inaccessible");
-				}
-
+			
+			if (current_index >= music_urls.length - 1) {
+				current_index = 0;
 			} else {
-				System.out.println("Liste de lecture épuisée.");
+				current_index++;
+			}
+			
+			String chemin = MusicPlayer.path + music_urls[current_index] + extension;
+			System.out.println("Player loading next music : " + chemin);
+			URL res = getClass().getResource(chemin);
+			if (res != null) {
+				String path = res.getPath();
+				Media media = new Media(new File(path).toURI().toString());
+				mp = new MediaPlayer(media);
+				mp.setVolume(1.0);
+				mp.setOnEndOfMedia(onEndofMedia);
+				mp.setAutoPlay(true);
+				mp.play();
+				paused = false;
+			} else {
+				System.out.println("erreur ressource " + chemin + " est inaccessible");
 			}
 		}
 	};
@@ -66,14 +66,14 @@ public final class MusicPlayer {
 	}
 
 	/**
-	 * starts to play the music list
+	 * Starts to play the music list.
 	 */
 	public static void start() {
 		new MusicPlayer();
 	}
 
 	/**
-	 * pauses the music player
+	 * Pauses the music player.
 	 */
 	public static void pause() {
 		if (mp != null) {
@@ -87,7 +87,7 @@ public final class MusicPlayer {
 	}
 
 	/**
-	 * stops the music player
+	 * Stops the music player.
 	 */
 	public static void stop() {
 		if (mp != null) {
