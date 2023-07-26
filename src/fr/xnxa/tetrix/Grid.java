@@ -100,18 +100,12 @@ public class Grid {
 
 
 	/**
-	 * when game is ended, this grid show an "end of game" message.
+	 * When game is ended, this grid show an "end of game" message.
 	 */
 	public void endGame() {
 		endGame = true;
 	}
 
-	/**
-	 *
-	 */
-	public void resetGame() {
-		endGame = false;
-	}
 
 	public void lockPiece(Piece piece) {
 		int[][] blockToLock = piece.getBlocksCoord();
@@ -125,7 +119,7 @@ public class Grid {
 
 		movingPiece = null;
 		int[] linesToDeletes = detectFullLines();
-		new CurrentScore().add(linesToDeletes.length);
+		GameStats.add(linesToDeletes.length);
 		deleteLines(linesToDeletes);
 	}
 

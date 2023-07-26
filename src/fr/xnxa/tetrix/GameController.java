@@ -11,33 +11,28 @@ import javafx.scene.input.KeyEvent;
 
 public class GameController {
 
-	private GameLoop game;
-	private CurrentScore sc;
+	private Game game;
 
 	@FXML
 	private Canvas canvas;
 
 	@FXML
 	private Label score;
+	
+	@FXML
+	private Label level;
 
 	@FXML
 	public void initialize() {
 		// Get the graphics context of the canvas
 		GraphicsContext gc = canvas.getGraphicsContext2D();
-		game = new GameLoop(gc);
-		game.startGame();
-
-		sc = new CurrentScore(score);
-		sc.raz();
-
-		MusicPlayer.start();
+		
+		GameStats.setScoreLabel(score, level);
+		
+		game = new Game(gc);
+		game.start();
 
 		score.isFocused();
-
-	}
-
-	public void changeScore(long score) {
-		this.score.setText("Score : " + score);
 	}
 
 	@FXML
@@ -84,9 +79,7 @@ public class GameController {
 
 	@FXML
 	void onBack(ActionEvent event) {
-		// go back : load initial menu stage
-		MusicPlayer.stop();
-		game.stop(); // stop the animation timer !
+		game.stop();
 		
 		try {
 			Main.mainStage();

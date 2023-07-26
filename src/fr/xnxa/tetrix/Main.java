@@ -25,7 +25,7 @@ public class Main extends Application {
 	
 	public static void mainStage() throws IOException {
 		Parent root = FXMLLoader.load(mainUI);
-        primaryStage.setTitle("Tetrix Menu");
+        primaryStage.setTitle("Tetrix");
         primaryStage.setScene(new Scene(root, 600.0, 400.0));
         primaryStage.setMinWidth(600.0);
         primaryStage.setMinHeight(400.0);
