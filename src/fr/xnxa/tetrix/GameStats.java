@@ -1,15 +1,17 @@
 package fr.xnxa.tetrix;
 import javafx.scene.control.Label;
 
-public class CurrentScore {
+public class GameStats {
 
 	private static long points = 0;
 	private static int totalCompletedLines = 0;
 
 	private static Label s;
+	private static Label l;
 
-	public static void setScoreLabel(Label score) {
+	public static void setScoreLabel(Label score, Label level) {
 		s = score;
+		l = level;
 	}
 
 	public static void raz() {
@@ -57,6 +59,7 @@ public class CurrentScore {
 	}
 	
 	private static void updateLabel() {
-		s.setText("Score : " + points + " (Level : " + getLevel() + ")");
+		s.setText("Score : " + points);
+		l.setText("Level : " + getLevel());
 	}
 }

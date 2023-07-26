@@ -23,7 +23,7 @@ public class Game {
 	public void start() {
 		grid = new Grid();
 
-		CurrentScore.raz();
+		GameStats.raz();
 
 		clk.setTickSpeed(1);
 		clk.start();
@@ -96,13 +96,13 @@ public class Game {
 			grid.lockPiece(currentPiece);
 			currentPiece = choosePiece();
 			
-			clk.setTickSpeed(CurrentScore.getLevel());
+			clk.setTickSpeed(GameStats.getLevel());
 			
 			if (currentPiece == null) {
 				// signal for end of the game !
 				grid.endGame();
 
-				new AskNameDialog(CurrentScore.getScore());
+				new AskNameDialog(GameStats.getScore());
 
 			} else {
 				grid.add(currentPiece);

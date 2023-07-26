@@ -43,6 +43,13 @@
                <center>
                   <Button mnemonicParsing="false" onAction="#onBack" text="Back" BorderPane.alignment="CENTER" />
                </center>
+               <bottom>
+                  <Label fx:id="level" text="Level :" BorderPane.alignment="TOP_LEFT">
+                     <BorderPane.margin>
+                        <Insets bottom="2.0" left="4.0" right="10.0" />
+                     </BorderPane.margin>
+                  </Label>
+               </bottom>
                   </BorderPane>
          </bottom>
             </BorderPane>

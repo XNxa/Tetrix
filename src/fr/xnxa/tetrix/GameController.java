@@ -18,13 +18,16 @@ public class GameController {
 
 	@FXML
 	private Label score;
+	
+	@FXML
+	private Label level;
 
 	@FXML
 	public void initialize() {
 		// Get the graphics context of the canvas
 		GraphicsContext gc = canvas.getGraphicsContext2D();
 		
-		CurrentScore.setScoreLabel(score);
+		GameStats.setScoreLabel(score, level);
 		
 		game = new Game(gc);
 		game.start();
