@@ -11,6 +11,7 @@ public class Game {
 	private Piece currentPiece;
 
 	private boolean isPaused = false;
+	
 
 	public Game(GraphicsContext gc) {
 		this.gc = gc;
@@ -73,7 +74,7 @@ public class Game {
 	
 	public void fullDown() {
 		
-		while (movePieceDown()) {
+		while (movePieceDown() && currentPiece != null) {
 			
 		}
 		

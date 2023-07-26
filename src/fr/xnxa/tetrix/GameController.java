@@ -45,7 +45,7 @@ public class GameController {
 
 	@FXML
 	private void handleKey(KeyEvent event) {
-
+		
 		switch (event.getCode()) {
 
 		case Q:

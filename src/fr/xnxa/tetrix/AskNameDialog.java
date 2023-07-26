@@ -11,7 +11,11 @@ public class AskNameDialog extends TextInputDialog {
 		
 		Platform.runLater(()->{
 			this.showAndWait();
-			new ScoreSaver().appendScore(new Score(this.getResult(), points));
+			
+			String playername = this.getResult();
+			if (playername != null || playername == "") {
+				new ScoreSaver().appendScore(new Score(playername, points));				
+			}
 		});
 	}
 	
