@@ -87,7 +87,7 @@ public class GameController {
 		// go back : load initial menu stage
 		MusicPlayer.stop();
 		game.stop(); // stop the animation timer !
-		
+
 		try {
 			Main.mainStage();
 		} catch (IOException e) {

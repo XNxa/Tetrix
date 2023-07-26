@@ -50,7 +50,7 @@ public class CurrentScore {
 	public int getLevel() {
 		return level;
 	}
-	
+
 	private void updateLabel() {
 		s.setText("Score : " + points);
 	}

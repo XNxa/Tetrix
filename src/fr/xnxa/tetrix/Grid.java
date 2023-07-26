@@ -16,7 +16,7 @@ public class Grid {
 
 	private boolean endGame = false;
 	private boolean pauseGame = false;
-	
+
 
 	/**
 	 * Is the cell (x, y) occupied by a block ?
@@ -96,7 +96,7 @@ public class Grid {
 
 	}
 
-	
+
 
 
 	/**
@@ -196,9 +196,9 @@ public class Grid {
 		gc.fillText("GAME ENDED", 20.0, 200.0);
 		gc.restore();
 	}
-	
+
 	private void drawPauseGame(GraphicsContext gc) {
-		
+
 		gc.save();
 		gc.setFont(new Font("Arial", 35.0));
 		gc.setFill(Color.rgb(194, 255, 179, 0.7));
@@ -210,9 +210,9 @@ public class Grid {
 
 		gc.fillText("GAME PAUSED", 12.0, 200.0);
 		gc.restore();
-			
+
 	}
-	
+
 	public void pause() {
 		this.pauseGame = !this.pauseGame;
 	}

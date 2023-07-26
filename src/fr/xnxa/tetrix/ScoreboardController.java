@@ -10,27 +10,27 @@ import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
 public class ScoreboardController {
-	
+
 	@FXML
 	private Button closeButton;
-	
+
 	@FXML
 	private ListView<String> list;
-	
+
 	@FXML
 	public void initialize() {
-		
+
 		List<String> scores = (new ScoreSaver()).getScores();
-		
+
 		ObservableList<String> content = FXCollections.observableArrayList(scores);
 		list.setItems(content);
-	}	
-	
+	}
+
 	@FXML
 	public void onClose(ActionEvent event) {
 		Stage stage = (Stage) closeButton.getScene().getWindow();
-		
-		stage.close();		
+
+		stage.close();
 	}
-	
+
 }

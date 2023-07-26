@@ -25,13 +25,13 @@ public class Piece {
 	};
 
 
-	private static final Color[] colors = {
+	private static Color[] colors = {
 	    Color.CYAN,      // shapeI - Cyan color
-	    Color.ORANGE,    // shapeL - Orange color
-	    Color.BLUE,      // shapeJ - Blue color
-	    Color.PURPLE,    // shapeT - Purple color
-	    Color.YELLOW,    // shapeO - Yellow color
-	    Color.GREEN,     // shapeS - Green color
+	    Color.ORANGE,    // shapeJ - Orange color
+	    Color.BLUE,      // shapeL - Blue color
+	    Color.PURPLE,    // shapeO - Purple color
+	    Color.YELLOW,    // shapeS - Yellow color
+	    Color.GREEN,     // shapeT - Green color
 	    Color.RED        // shapeZ - Red color
 	};
 

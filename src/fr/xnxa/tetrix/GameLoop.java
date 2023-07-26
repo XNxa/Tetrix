@@ -3,7 +3,6 @@ import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.TextInputDialog;
-import javafx.stage.Window;
 
 public class GameLoop extends AnimationTimer {
 
@@ -27,9 +26,9 @@ public class GameLoop extends AnimationTimer {
 
 	@Override
 	public void handle(long currentTime) {
-		
-		
-		
+
+
+
 		if (previousTime == 0) {
 			previousTime = currentTime;
 			return;
@@ -116,12 +115,12 @@ public class GameLoop extends AnimationTimer {
 	}
 
 	private String askPlayerName() {
-		
+
 		TextInputDialog window = new TextInputDialog();
 		window.setTitle("What's yout name ?");
 		window.setHeaderText("Enter your name :");
 		window.showAndWait();
-			
+
 		return window.getResult();
 	}
 
