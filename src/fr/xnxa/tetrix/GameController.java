@@ -71,6 +71,9 @@ public class GameController {
 		case SPACE:
 			game.pause();
 			break;
+			
+		case F:
+			game.fullDown();
 
 		default:
 			break;

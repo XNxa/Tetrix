@@ -70,6 +70,16 @@ public class Game {
 		grid.draw(gc);
 	}
 
+	
+	public void fullDown() {
+		
+		while (movePieceDown()) {
+			
+		}
+		
+		grid.draw(gc);
+	}
+	
 	public void down() {
 		movePieceDown();
 		grid.draw(gc);
@@ -89,7 +99,7 @@ public class Game {
 		MusicPlayer.pause();
 	}
 
-	private void movePieceDown() {
+	private boolean movePieceDown() {
 		// Move the active piece down by one unit
 		if (currentPiece != null && !currentPiece.moveDown()) {
 			// Lock the piece in place and generate a new active piece
@@ -107,6 +117,9 @@ public class Game {
 			} else {
 				grid.add(currentPiece);
 			}
+			return false;
+		} else {
+			return true;
 		}
 
 	}
