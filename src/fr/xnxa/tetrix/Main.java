@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 
 public class Main extends Application {
-	
+
 	private static URL mainUI;
 	private static Stage primaryStage;
 
@@ -22,7 +22,7 @@ public class Main extends Application {
 		Main.primaryStage = primaryStage;
 		mainStage();
 	}
-	
+
 	public static void mainStage() throws IOException {
 		Parent root = FXMLLoader.load(mainUI);
         primaryStage.setTitle("Tetrix");

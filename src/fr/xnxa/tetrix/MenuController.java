@@ -8,11 +8,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class MenuController {
-	
+
 	@FXML
     private Button startButton;
 
@@ -35,25 +36,50 @@ public class MenuController {
 		}
 
      }
-    
+
     @FXML
     private void scoreButton(ActionEvent event) {
-    	
+
         try {
-			
+
 			Pane pane = new FXMLLoader(getClass().getResource("fxml/scoreboard.fxml")).load();
-			
+
 			Stage scoreStage = new Stage();
 			Scene scoreScene = new Scene(pane);
-			
+
 			scoreStage.setScene(scoreScene);
 			scoreStage.setTitle("ScoreBoard");
+			scoreStage.getIcons().add(new Image(Main.class.getResourceAsStream("assets/rubik.png")));
 			scoreStage.showAndWait();
-			
+
 		} catch (IOException e) {
 			e.printStackTrace();
-		}	
-    	
+		}
+
     }
-    
+
+
+    @FXML
+    private void settingsButton(ActionEvent event) {
+
+        try {
+
+			Pane pane = new FXMLLoader(getClass().getResource("fxml/settings.fxml")).load();
+
+			Stage scoreStage = new Stage();
+			Scene scoreScene = new Scene(pane);
+
+			scoreStage.setScene(scoreScene);
+			scoreStage.setTitle("Settings ...");
+			scoreStage.getIcons().add(new Image(Main.class.getResourceAsStream("assets/rubik.png")));
+			scoreStage.setMinHeight(420D);
+			scoreStage.setMinWidth(600D);
+			scoreStage.showAndWait();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+    }
+
 }
