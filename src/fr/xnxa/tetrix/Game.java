@@ -64,7 +64,7 @@ public class Game implements Tickable {
 	 * Move piece left by 1.
 	 */
 	public void left() {
-		if (currentPiece != null)
+		if (currentPiece != null && !isPaused)
 			currentPiece.moveLeft();
 		grid.draw(gc);
 	}
@@ -73,7 +73,7 @@ public class Game implements Tickable {
 	 * Move piece right by 1.
 	 */
 	public void right() {
-		if (currentPiece != null)
+		if (currentPiece != null && !isPaused)
 			currentPiece.moveRight();
 		grid.draw(gc);
 	}
@@ -82,7 +82,7 @@ public class Game implements Tickable {
 	 * Rotate piece.
 	 */
 	public void rotateL() {
-		if (currentPiece != null)
+		if (currentPiece != null && !isPaused)
 			currentPiece.rotateLeft();
 		grid.draw(gc);
 	}
@@ -91,7 +91,7 @@ public class Game implements Tickable {
 	 * Rotate piece.
 	 */
 	public void rotateR() {
-		if (currentPiece != null)
+		if (currentPiece != null && !isPaused)
 			currentPiece.rotateRight();
 		grid.draw(gc);
 	}
@@ -101,7 +101,7 @@ public class Game implements Tickable {
 	 */
 	public void fullDown() {
 		
-		while (movePieceDown() && currentPiece != null) {
+		while (!isPaused && movePieceDown() && currentPiece != null) {
 			// Doing nothing because the action is made 
 			// in movePieceDown() ...
 		}
@@ -113,22 +113,24 @@ public class Game implements Tickable {
 	 * Move the piece down by 1.
 	 */
 	public void down() {
-		movePieceDown();
-		grid.draw(gc);
+		if (!isPaused) {
+			movePieceDown();
+			grid.draw(gc);
+		}
 	}
 	
 	/**
 	 * Pause or unpause the game.
 	 */
 	public void pause() {
-		isPaused = !isPaused;
-
 		if (isPaused) {
 			clk.start();
 		} else {
 			clk.stop();
 		}
-
+		
+		isPaused = !isPaused;
+		
 		grid.pause();
 		grid.draw(gc);
 		MusicPlayer.pause();
